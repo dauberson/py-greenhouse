@@ -5,3 +5,13 @@ repos:
     -   id: check-toml
         id: check-yaml
         id: requirements-txt-fixer
+
+-   repo: https://github.com/ambv/black
+    rev: 20.8b1
+    hooks:
+    -   id: black
+
+-   repo: https://github.com/pycqa/flake8
+    rev: 3.8.4
+    hooks:
+    -   id: flake8
