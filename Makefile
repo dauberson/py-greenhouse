@@ -24,6 +24,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+PRECOMMIT = pre-commit run --all-files
 BUILD = docker-compose build
 RUN = docker-compose run
 VERSION = $(shell awk -F ' = ' '$$1 ~ /version/ { gsub(/[\"]/, "", $$2); printf("%s",$$2) }' version.toml)
@@ -77,3 +78,6 @@ debug:
 release:
 	git tag -a $(VERSION) -m "VERSION=$(VERSION) read from `version.toml`"
 	git push origin HEAD:dev tag $(VERSION)
+
+pre-commit:
+	$(PRECOMMIT)
