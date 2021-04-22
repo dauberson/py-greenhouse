@@ -1,4 +1,4 @@
-def get(df, train_ratio=0.8, valid_ratio=0.1, test_ratio=0.1, seed=0):
+def split(df, train_ratio=0.8, valid_ratio=0.1, test_ratio=0.1, seed=0):
 
     train = df.sample(frac=train_ratio, random_state=seed)
 
@@ -10,4 +10,4 @@ def get(df, train_ratio=0.8, valid_ratio=0.1, test_ratio=0.1, seed=0):
 
     test = rest.drop(valid.index)
 
-    return train, valid, test
+    return {train, valid, test}
