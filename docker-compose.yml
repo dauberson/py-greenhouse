@@ -39,4 +39,4 @@ services:
     volumes:
       - .:/usr/app/
     working_dir: /usr/app/
-    command: "pytest --verbose --capture=no"
+    command: "pytest"

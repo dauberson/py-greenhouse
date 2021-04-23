@@ -1,10 +1,10 @@
 import pandera as pa
-from src.main import data_sourcing
+from src import data_sourcing
 
 
-def test_import_data():
+def test_data_sourcing_get():
 
-    df = data_sourcing()
+    df = data_sourcing.get()
 
     print(df)
 
@@ -24,4 +24,4 @@ def test_import_data():
         }
     )
 
-    validated_df = schema(df)
+    schema(df)

@@ -24,7 +24,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-PRECOMMIT = pre-commit run --all-files
+
+PRECOMMIT = pre-commit run -a
 BUILD = docker-compose build
 RUN = docker-compose run
 VERSION = $(shell awk -F ' = ' '$$1 ~ /version/ { gsub(/[\"]/, "", $$2); printf("%s",$$2) }' version.toml)
@@ -72,8 +73,12 @@ python3:
 jupyter:
 	$(RUN) --service-ports jupyter
 
-test:
+test-no-log:
 	$(RUN) test
+
+test:
+	# test and append log to file including datetime in UTC
+	(date --utc && $(RUN) test) 2>&1 | tee -ai logs/log_test.txt
 
 debug:
 	echo $(VERSION)
@@ -84,3 +89,6 @@ release:
 
 pre-commit:
 	$(PRECOMMIT)
+
+default_language_version:
+    python: python3.8
