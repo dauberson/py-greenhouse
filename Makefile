@@ -73,12 +73,8 @@ python3:
 jupyter:
 	$(RUN) --service-ports jupyter
 
-test-no-log:
-	$(RUN) test
-
 test:
-	# test and append log to file including datetime in UTC
-	(date --utc && $(RUN) test) 2>&1 | tee -ai logs/log_test.txt
+	$(RUN) test
 
 debug:
 	echo $(VERSION)
@@ -90,5 +86,5 @@ release:
 pre-commit:
 	$(PRECOMMIT)
 
-default_language_version:
-    python: python3.8
+run-main:
+	$(RUN) run-main
