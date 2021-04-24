@@ -1,6 +1,6 @@
 import data_sourcing
 import data_splitting
-import data_cleansing
+import data_preprocessing
 from prefect import Flow, task
 
 
@@ -16,21 +16,26 @@ def splitting(df):
 
 @task
 def cleansing(df):
-    return data_cleansing.clean(df)
+    return data_preprocessing.clean(df)
+
+
+@task
+def normalizing(df):
+    return data_preprocessing.normalize(df)
 
 
 with Flow("greenhouse") as flow:
     df = sourcing()
+    df = cleansing(df)
+    df = normalizing(df)
     s = splitting(df)
 
     train = s["train"]
     valid = s["valid"]
     test = s["test"]
 
-    train = cleansing(train)
-    valid = cleansing(valid)
-    test = cleansing(test)
+if __name__ == "__main__":
 
-flow.run()
+    flow.run()
 
-flow.visualize(filename="../prefect_flow")
+    flow.visualize(filename="flow/prefect_flow")
