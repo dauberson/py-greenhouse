@@ -41,7 +41,7 @@ services:
     working_dir: /usr/app/
     command: "pytest"
 
-  run-main:
+  run:
     image: base_image
     user: root
     volumes:

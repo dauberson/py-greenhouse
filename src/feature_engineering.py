@@ -1,21 +1,49 @@
-from feature_engine import encoding
+from feature_engine import encoding, imputation
 
-# import pandas as pd
+
+def drop_missing_data(train, valid, test, cols):
+
+    fe = imputation.DropMissingData()
+
+    fe.fit(train[cols])
+
+    return {
+        "train": fe.transform(train[cols]),
+        "valid": fe.transform(valid[cols]),
+        "test": fe.transform(test[cols]),
+    }
+
+
+def numerical_missing_imputation(train, valid, test, cols, imputation_method="median"):
+
+    fe = imputation.MeanMedianImputer(imputation_method=imputation_method)
+
+    fe.fit(train[cols])
+
+    return (
+        fe.transform(train[cols]),
+        fe.transform(valid[cols]),
+        fe.transform(test[cols]),
+    )
 
 
 def one_hot_encoding(train, valid, test, cols):
 
-    enc = encoding.OneHotEncoder(variables=cols)
+    print(train)
+
+    fe = encoding.OneHotEncoder(variables=cols)
 
     for col in cols:
         train[col] = train[col].fillna("na")
         valid[col] = valid[col].fillna("na")
         test[col] = test[col].fillna("na")
 
-    enc.fit(train[cols])
+    print(train)
 
-    return {
-        "train": enc.transform(train[cols]),
-        "valid": enc.transform(valid[cols]),
-        "test": enc.transform(test[cols]),
-    }
+    fe.fit(train[cols])
+
+    return (
+        fe.transform(train[cols]),
+        fe.transform(valid[cols]),
+        fe.transform(test[cols]),
+    )

@@ -62,9 +62,13 @@ build:
 	$(BUILD)
 
 build-no-cache:
+	mkdir --parents logs
+	touch logs/output.txt
 	$(BUILD) --no-cache
 
 bash:
+	mkdir --parents logs
+	touch logs/output.txt
 	$(RUN) bash
 
 python3:
@@ -80,11 +84,11 @@ debug:
 	echo $(VERSION)
 
 release:
-	git tag -a $(VERSION) -m "VERSION=$(VERSION) read from `version.toml`"
+	git tag -a $(VERSION) -m "VERSION=$(VERSION)"
 	git push origin HEAD:dev tag $(VERSION)
 
 pre-commit:
 	$(PRECOMMIT)
 
-run-main:
-	$(RUN) run-main
+run:
+	$(RUN) run | tee --append ./logs/shell_output.txt
