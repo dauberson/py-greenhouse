@@ -84,7 +84,7 @@ debug:
 	echo $(VERSION)
 
 release:
-	git tag -a $(VERSION) -m "VERSION=$(VERSION) read from `version.toml`"
+	git tag -a $(VERSION) -m "VERSION=$(VERSION)"
 	git push origin HEAD:dev tag $(VERSION)
 
 pre-commit:
