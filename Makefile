@@ -62,9 +62,13 @@ build:
 	$(BUILD)
 
 build-no-cache:
+	mkdir --parents logs
+	touch logs/output.txt
 	$(BUILD) --no-cache
 
 bash:
+	mkdir --parents logs
+	touch logs/output.txt
 	$(RUN) bash
 
 python3:
@@ -86,5 +90,5 @@ release:
 pre-commit:
 	$(PRECOMMIT)
 
-run-main:
-	$(RUN) run-main
+run:
+	$(RUN) run | tee --append ./logs/shell_output.txt
