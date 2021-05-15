@@ -59,16 +59,20 @@ install-requirements:
 	pre-commit autoupdate
 
 build:
+	mkdir --parents logs
+	touch logs/log_run.txt
+	touch logs/log_commit.txt
+	touch logs/log_release.txt
 	$(BUILD)
 
 build-no-cache:
 	mkdir --parents logs
-	touch logs/output.txt
+	touch logs/log_run.txt
+	touch logs/log_commit.txt
+	touch logs/log_release.txt
 	$(BUILD) --no-cache
 
 bash:
-	mkdir --parents logs
-	touch logs/output.txt
 	$(RUN) bash
 
 python3:
@@ -78,17 +82,19 @@ jupyter:
 	$(RUN) --service-ports jupyter
 
 test:
-	$(RUN) test
+	(date && $(RUN) test) 2>&1 | tee -ai logs/log_test.txt 
 
 debug:
 	echo $(VERSION)
 
 release:
-	git tag -a $(VERSION) -m "VERSION=$(VERSION)"
-	git push origin HEAD:dev tag $(VERSION)
+	git tag -annotate $(VERSION) \
+	-message "VERSION=$(VERSION) read from 'version.toml'"
+	(date && git push origin HEAD:dev tag $(VERSION)) \
+	2>&1 | tee -ai logs/log_release.txt 
 
 pre-commit:
-	$(PRECOMMIT)
+	(date && $(PRECOMMIT)) 2>&1 | tee -ai logs/log_run.txt 
 
 run:
-	$(RUN) run | tee --append ./logs/shell_output.txt
+	(date && $(RUN) run) 2>&1 | tee -ai logs/log_run.txt
