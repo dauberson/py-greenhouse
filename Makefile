@@ -92,7 +92,7 @@ debug:
 
 release:
 	git tag --annotate $(VERSION) \
-	-message "VERSION=$(VERSION) read from 'version.toml'"
+	--message "VERSION=$(VERSION) read from version.toml"
 	(date && git push origin HEAD:dev tag $(VERSION)) \
 	2>&1 | tee -ai logs/log_release.txt 
 
