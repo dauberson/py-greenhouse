@@ -81,6 +81,9 @@ python3:
 jupyter:
 	$(RUN) --service-ports jupyter
 
+test-no-log:
+	$(RUN) test
+
 test:
 	(date && $(RUN) test) 2>&1 | tee -ai logs/log_test.txt 
 

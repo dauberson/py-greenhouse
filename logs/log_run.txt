@@ -296,3 +296,79 @@ flake8...................................................................Passed
 - hook id: flake8
 - duration: 0.22s
 test.....................................................................Passed
+Fri May 14 11:10:43 PM -03 2021
+Check Toml...............................................................Failed
+- hook id: check-toml
+- duration: 0.07s
+- files were modified by this hook
+Check Yaml...............................................................Failed
+- hook id: check-yaml
+- duration: 0.06s
+- files were modified by this hook
+Fix requirements.txt.....................................................Failed
+- hook id: requirements-txt-fixer
+- duration: 0.03s
+- files were modified by this hook
+black....................................................................Failed
+- hook id: black
+- duration: 0.15s
+- files were modified by this hook
+
+All done! ✨ 🍰 ✨
+11 files left unchanged.
+
+flake8...................................................................Failed
+- hook id: flake8
+- duration: 0.21s
+- files were modified by this hook
+test.....................................................................Failed
+- hook id: test
+- files were modified by this hook
+
+make[1]: Entering directory '/home/dauberson/py-greenhouse'
+(date && docker-compose run test) 2>&1 | tee -ai logs/log_test.txt 
+Fri May 14 11:10:44 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 7 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  bill_depth_mm  ...     sex    species
+0              39.1           18.7  ...    male     Adelie
+1              39.5           17.4  ...  female     Adelie
+2              40.3           18.0  ...  female     Adelie
+3               NaN            NaN  ...     NaN     Adelie
+4              36.7           19.3  ...  female     Adelie
+..              ...            ...  ...     ...        ...
+339            55.8           19.8  ...    male  Chinstrap
+340            43.5           18.1  ...  female  Chinstrap
+341            49.6           18.2  ...    male  Chinstrap
+342            50.8           19.0  ...    male  Chinstrap
+343            50.2           18.7  ...  female  Chinstrap
+
+[344 rows x 6 columns]
+PASSED
+tests/test_data_splitting.py::test_data_splitting_train PASSED
+tests/test_data_splitting.py::test_data_splitting_valid PASSED
+tests/test_data_splitting.py::test_data_splitting_test PASSED
+tests/test_feature_engineering.py::test_drop_missing_data PASSED
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+PASSED
+
+============================== 7 passed in 1.10s ===============================
+make[1]: Leaving directory '/home/dauberson/py-greenhouse'
+
