@@ -1,0 +1,1278 @@
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 4 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get [32mPASSED[0m[32m               [ 25%][0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m[32m         [ 50%][0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m[32m [ 75%][0m
+tests/test_feature_engineering.py::test_one_hot_encoding [32mPASSED[0m[32m          [100%][0m
+
+[32m============================== [32m[1m4 passed[0m[32m in 1.12s[0m[32m ===============================[0m
+Fri May 14 02:40:22 AM UTC 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 4 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get [32mPASSED[0m[32m               [ 25%][0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m[32m         [ 50%][0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m[32m [ 75%][0m
+tests/test_feature_engineering.py::test_one_hot_encoding [32mPASSED[0m[32m          [100%][0m
+
+[32m============================== [32m[1m4 passed[0m[32m in 1.43s[0m[32m ===============================[0m
+Thu May 13 11:45:03 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 4 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get [32mPASSED[0m[32m               [ 25%][0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m[32m         [ 50%][0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m[32m [ 75%][0m
+tests/test_feature_engineering.py::test_one_hot_encoding [32mPASSED[0m[32m          [100%][0m
+
+[32m============================== [32m[1m4 passed[0m[32m in 1.10s[0m[32m ===============================[0m
+Thu May 13 11:50:42 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 4 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get PASSED               [ 25%]
+tests/test_feature_engineering.py::test_drop_missing_data PASSED         [ 50%]
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED [ 75%]
+tests/test_feature_engineering.py::test_one_hot_encoding PASSED          [100%]
+
+============================== 4 passed in 1.05s ===============================
+Thu May 13 11:52:37 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 4 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get [32mPASSED[0m[32m               [ 25%][0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m[32m         [ 50%][0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m[32m [ 75%][0m
+tests/test_feature_engineering.py::test_one_hot_encoding [32mPASSED[0m[32m          [100%][0m
+
+[32m============================== [32m[1m4 passed[0m[32m in 1.09s[0m[32m ===============================[0m
+Fri May 14 12:02:46 AM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 4 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get PASSED               [ 25%]
+tests/test_feature_engineering.py::test_drop_missing_data PASSED         [ 50%]
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED [ 75%]
+tests/test_feature_engineering.py::test_one_hot_encoding PASSED          [100%]
+
+============================== 4 passed in 1.78s ===============================
+Fri May 14 09:43:08 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 4 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+[32m============================== [32m[1m4 passed[0m[32m in 1.47s[0m[32m ===============================[0m
+Fri May 14 10:50:17 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 5 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [31mFAILED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+=================================== FAILURES ===================================
+[31m[1m_______________________ test_data_splitting_train_ratio ________________________[0m
+
+df_10_rows =    a  b
+0  0  a
+1  1  b
+2  2  c
+3  3  d
+4  4  e
+5  5  f
+6  6  g
+7  7  h
+8  8  i
+9  9  j
+
+    [94mdef[39;49;00m [92mtest_data_splitting_train_ratio[39;49;00m(df_10_rows):
+    
+        train, valid, test = data_splitting.split(
+            df_10_rows,
+            train_ratio=[94m0.7[39;49;00m,
+            valid_ratio=[94m0.2[39;49;00m,
+            test_ratio=[94m0.1[39;49;00m,
+            seed=[94m0[39;49;00m
+        )
+    
+>       [94massert[39;49;00m [96mlen[39;49;00m(train) / [96mlen[39;49;00m(df) == [94m0.7[39;49;00m
+[1m[31mE       NameError: name 'df' is not defined[0m
+
+[1m[31mtests/test_data_splitting.py[0m:25: NameError
+=========================== short test summary info ============================
+FAILED tests/test_data_splitting.py::test_data_splitting_train_ratio - NameEr...
+[31m========================= [31m[1m1 failed[0m, [32m4 passed[0m[31m in 1.59s[0m[31m ==========================[0m
+Fri May 14 10:50:32 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 5 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [32mPASSED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+[32m============================== [32m[1m5 passed[0m[32m in 1.29s[0m[32m ===============================[0m
+Fri May 14 10:50:56 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 5 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [31mERROR[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+==================================== ERRORS ====================================
+[31m[1m______________ ERROR at setup of test_data_splitting_train_ratio _______________[0m
+file /usr/app/tests/test_data_splitting.py, line 15
+  def test_data_splitting_train_ratio(df_10_rows):
+[31mE       fixture 'df_10_rows' not found[0m
+[31m>       available fixtures: anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, doctest_namespace, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory[0m
+[31m>       use 'pytest --fixtures [testpath]' for help on them.[0m
+
+/usr/app/tests/test_data_splitting.py:15
+=========================== short test summary info ============================
+ERROR tests/test_data_splitting.py::test_data_splitting_train_ratio
+[31m========================== [32m4 passed[0m, [31m[1m1 error[0m[31m in 1.36s[0m[31m ==========================[0m
+Fri May 14 10:53:07 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 7 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid [31mFAILED[0m
+tests/test_data_splitting.py::test_data_splitting_test [31mFAILED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+=================================== FAILURES ===================================
+[31m[1m__________________________ test_data_splitting_valid ___________________________[0m
+
+df_10_rows =    a  b
+0  0  a
+1  1  b
+2  2  c
+3  3  d
+4  4  e
+5  5  f
+6  6  g
+7  7  h
+8  8  i
+9  9  j
+
+    [94mdef[39;49;00m [92mtest_data_splitting_valid[39;49;00m(df_10_rows):
+    
+        train, valid, test = data_splitting.split(
+            df_10_rows,
+            train_ratio=[94m0.5[39;49;00m,
+            valid_ratio=[94m0.25[39;49;00m,
+            test_ratio=[94m0.25[39;49;00m,
+            seed=[94m0[39;49;00m
+        )
+    
+>       [94massert[39;49;00m [96mlen[39;49;00m(valid) == [94m2.5[39;49;00m
+[1m[31mE       assert 2 == 2.5[0m
+[1m[31mE         +2[0m
+[1m[31mE         -2.5[0m
+
+[1m[31mtests/test_data_splitting.py[0m:37: AssertionError
+[31m[1m___________________________ test_data_splitting_test ___________________________[0m
+
+df_10_rows =    a  b
+0  0  a
+1  1  b
+2  2  c
+3  3  d
+4  4  e
+5  5  f
+6  6  g
+7  7  h
+8  8  i
+9  9  j
+
+    [94mdef[39;49;00m [92mtest_data_splitting_test[39;49;00m(df_10_rows):
+    
+        train, valid, test = data_splitting.split(
+            df_10_rows,
+            train_ratio=[94m0.1[39;49;00m,
+            valid_ratio=[94m0.5[39;49;00m,
+            test_ratio=[94m0.4[39;49;00m,
+            seed=[94m0[39;49;00m
+        )
+    
+>       [94massert[39;49;00m [96mlen[39;49;00m(train) == [94m4[39;49;00m
+[1m[31mE       assert 1 == 4[0m
+[1m[31mE         +1[0m
+[1m[31mE         -4[0m
+
+[1m[31mtests/test_data_splitting.py[0m:49: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_data_splitting.py::test_data_splitting_valid - assert 2 == 2.5
+FAILED tests/test_data_splitting.py::test_data_splitting_test - assert 1 == 4
+[31m========================= [31m[1m2 failed[0m, [32m5 passed[0m[31m in 1.33s[0m[31m ==========================[0m
+Fri May 14 10:53:22 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 7 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid [31mFAILED[0m
+tests/test_data_splitting.py::test_data_splitting_test [32mPASSED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+=================================== FAILURES ===================================
+[31m[1m__________________________ test_data_splitting_valid ___________________________[0m
+
+df_10_rows =    a  b
+0  0  a
+1  1  b
+2  2  c
+3  3  d
+4  4  e
+5  5  f
+6  6  g
+7  7  h
+8  8  i
+9  9  j
+
+    [94mdef[39;49;00m [92mtest_data_splitting_valid[39;49;00m(df_10_rows):
+    
+        train, valid, test = data_splitting.split(
+            df_10_rows,
+            train_ratio=[94m0.5[39;49;00m,
+            valid_ratio=[94m0.25[39;49;00m,
+            test_ratio=[94m0.25[39;49;00m,
+            seed=[94m0[39;49;00m
+        )
+    
+>       [94massert[39;49;00m [96mlen[39;49;00m(valid) == [94m2.5[39;49;00m
+[1m[31mE       assert 2 == 2.5[0m
+[1m[31mE         +2[0m
+[1m[31mE         -2.5[0m
+
+[1m[31mtests/test_data_splitting.py[0m:37: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_data_splitting.py::test_data_splitting_valid - assert 2 == 2.5
+[31m========================= [31m[1m1 failed[0m, [32m6 passed[0m[31m in 1.29s[0m[31m ==========================[0m
+Fri May 14 10:53:45 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 7 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid [31mFAILED[0m
+tests/test_data_splitting.py::test_data_splitting_test [32mPASSED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+=================================== FAILURES ===================================
+[31m[1m__________________________ test_data_splitting_valid ___________________________[0m
+
+df_10_rows =    a  b
+0  0  a
+1  1  b
+2  2  c
+3  3  d
+4  4  e
+5  5  f
+6  6  g
+7  7  h
+8  8  i
+9  9  j
+
+    [94mdef[39;49;00m [92mtest_data_splitting_valid[39;49;00m(df_10_rows):
+    
+        train, valid, test = data_splitting.split(
+            df_10_rows,
+            train_ratio=[94m0.5[39;49;00m,
+            valid_ratio=[94m0.25[39;49;00m,
+            test_ratio=[94m0.25[39;49;00m,
+            seed=[94m0[39;49;00m
+        )
+    
+>       [94massert[39;49;00m [96mlen[39;49;00m(valid) == [94m2.5[39;49;00m
+[1m[31mE       assert 2 == 2.5[0m
+[1m[31mE         +2[0m
+[1m[31mE         -2.5[0m
+
+[1m[31mtests/test_data_splitting.py[0m:37: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_data_splitting.py::test_data_splitting_valid - assert 2 == 2.5
+[31m========================= [31m[1m1 failed[0m, [32m6 passed[0m[31m in 1.36s[0m[31m ==========================[0m
+Fri May 14 10:54:20 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 7 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test [32mPASSED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+[32m============================== [32m[1m7 passed[0m[32m in 1.20s[0m[32m ===============================[0m
+Fri May 14 11:02:02 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 7 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  bill_depth_mm  ...     sex    species
+0              39.1           18.7  ...    male     Adelie
+1              39.5           17.4  ...  female     Adelie
+2              40.3           18.0  ...  female     Adelie
+3               NaN            NaN  ...     NaN     Adelie
+4              36.7           19.3  ...  female     Adelie
+..              ...            ...  ...     ...        ...
+339            55.8           19.8  ...    male  Chinstrap
+340            43.5           18.1  ...  female  Chinstrap
+341            49.6           18.2  ...    male  Chinstrap
+342            50.8           19.0  ...    male  Chinstrap
+343            50.2           18.7  ...  female  Chinstrap
+
+[344 rows x 6 columns]
+PASSED
+tests/test_data_splitting.py::test_data_splitting_train PASSED
+tests/test_data_splitting.py::test_data_splitting_valid PASSED
+tests/test_data_splitting.py::test_data_splitting_test PASSED
+tests/test_feature_engineering.py::test_drop_missing_data PASSED
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+PASSED
+
+============================== 7 passed in 1.07s ===============================
+Fri May 14 11:03:32 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 7 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  bill_depth_mm  ...     sex    species
+0              39.1           18.7  ...    male     Adelie
+1              39.5           17.4  ...  female     Adelie
+2              40.3           18.0  ...  female     Adelie
+3               NaN            NaN  ...     NaN     Adelie
+4              36.7           19.3  ...  female     Adelie
+..              ...            ...  ...     ...        ...
+339            55.8           19.8  ...    male  Chinstrap
+340            43.5           18.1  ...  female  Chinstrap
+341            49.6           18.2  ...    male  Chinstrap
+342            50.8           19.0  ...    male  Chinstrap
+343            50.2           18.7  ...  female  Chinstrap
+
+[344 rows x 6 columns]
+PASSED
+tests/test_data_splitting.py::test_data_splitting_train PASSED
+tests/test_data_splitting.py::test_data_splitting_valid PASSED
+tests/test_data_splitting.py::test_data_splitting_test PASSED
+tests/test_feature_engineering.py::test_drop_missing_data PASSED
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+PASSED
+
+============================== 7 passed in 1.05s ===============================
+Fri May 14 11:03:58 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 7 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  bill_depth_mm  ...     sex    species
+0              39.1           18.7  ...    male     Adelie
+1              39.5           17.4  ...  female     Adelie
+2              40.3           18.0  ...  female     Adelie
+3               NaN            NaN  ...     NaN     Adelie
+4              36.7           19.3  ...  female     Adelie
+..              ...            ...  ...     ...        ...
+339            55.8           19.8  ...    male  Chinstrap
+340            43.5           18.1  ...  female  Chinstrap
+341            49.6           18.2  ...    male  Chinstrap
+342            50.8           19.0  ...    male  Chinstrap
+343            50.2           18.7  ...  female  Chinstrap
+
+[344 rows x 6 columns]
+PASSED
+tests/test_data_splitting.py::test_data_splitting_train PASSED
+tests/test_data_splitting.py::test_data_splitting_valid PASSED
+tests/test_data_splitting.py::test_data_splitting_test PASSED
+tests/test_feature_engineering.py::test_drop_missing_data PASSED
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+PASSED
+
+============================== 7 passed in 1.01s ===============================
+Fri May 14 11:04:53 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 7 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  bill_depth_mm  ...     sex    species
+0              39.1           18.7  ...    male     Adelie
+1              39.5           17.4  ...  female     Adelie
+2              40.3           18.0  ...  female     Adelie
+3               NaN            NaN  ...     NaN     Adelie
+4              36.7           19.3  ...  female     Adelie
+..              ...            ...  ...     ...        ...
+339            55.8           19.8  ...    male  Chinstrap
+340            43.5           18.1  ...  female  Chinstrap
+341            49.6           18.2  ...    male  Chinstrap
+342            50.8           19.0  ...    male  Chinstrap
+343            50.2           18.7  ...  female  Chinstrap
+
+[344 rows x 6 columns]
+PASSED
+tests/test_data_splitting.py::test_data_splitting_train PASSED
+tests/test_data_splitting.py::test_data_splitting_valid PASSED
+tests/test_data_splitting.py::test_data_splitting_test PASSED
+tests/test_feature_engineering.py::test_drop_missing_data PASSED
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+PASSED
+
+============================== 7 passed in 1.08s ===============================
+Fri May 14 11:05:08 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 7 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  bill_depth_mm  ...     sex    species
+0              39.1           18.7  ...    male     Adelie
+1              39.5           17.4  ...  female     Adelie
+2              40.3           18.0  ...  female     Adelie
+3               NaN            NaN  ...     NaN     Adelie
+4              36.7           19.3  ...  female     Adelie
+..              ...            ...  ...     ...        ...
+339            55.8           19.8  ...    male  Chinstrap
+340            43.5           18.1  ...  female  Chinstrap
+341            49.6           18.2  ...    male  Chinstrap
+342            50.8           19.0  ...    male  Chinstrap
+343            50.2           18.7  ...  female  Chinstrap
+
+[344 rows x 6 columns]
+PASSED
+tests/test_data_splitting.py::test_data_splitting_train PASSED
+tests/test_data_splitting.py::test_data_splitting_valid PASSED
+tests/test_data_splitting.py::test_data_splitting_test PASSED
+tests/test_feature_engineering.py::test_drop_missing_data PASSED
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+PASSED
+
+============================== 7 passed in 1.12s ===============================
+Fri May 14 11:05:50 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 7 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  bill_depth_mm  ...     sex    species
+0              39.1           18.7  ...    male     Adelie
+1              39.5           17.4  ...  female     Adelie
+2              40.3           18.0  ...  female     Adelie
+3               NaN            NaN  ...     NaN     Adelie
+4              36.7           19.3  ...  female     Adelie
+..              ...            ...  ...     ...        ...
+339            55.8           19.8  ...    male  Chinstrap
+340            43.5           18.1  ...  female  Chinstrap
+341            49.6           18.2  ...    male  Chinstrap
+342            50.8           19.0  ...    male  Chinstrap
+343            50.2           18.7  ...  female  Chinstrap
+
+[344 rows x 6 columns]
+PASSED
+tests/test_data_splitting.py::test_data_splitting_train PASSED
+tests/test_data_splitting.py::test_data_splitting_valid PASSED
+tests/test_data_splitting.py::test_data_splitting_test PASSED
+tests/test_feature_engineering.py::test_drop_missing_data PASSED
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+PASSED
+
+============================== 7 passed in 1.07s ===============================
+Fri May 14 11:06:32 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 7 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  bill_depth_mm  ...     sex    species
+0              39.1           18.7  ...    male     Adelie
+1              39.5           17.4  ...  female     Adelie
+2              40.3           18.0  ...  female     Adelie
+3               NaN            NaN  ...     NaN     Adelie
+4              36.7           19.3  ...  female     Adelie
+..              ...            ...  ...     ...        ...
+339            55.8           19.8  ...    male  Chinstrap
+340            43.5           18.1  ...  female  Chinstrap
+341            49.6           18.2  ...    male  Chinstrap
+342            50.8           19.0  ...    male  Chinstrap
+343            50.2           18.7  ...  female  Chinstrap
+
+[344 rows x 6 columns]
+PASSED
+tests/test_data_splitting.py::test_data_splitting_train PASSED
+tests/test_data_splitting.py::test_data_splitting_valid PASSED
+tests/test_data_splitting.py::test_data_splitting_test PASSED
+tests/test_feature_engineering.py::test_drop_missing_data PASSED
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+PASSED
+
+============================== 7 passed in 1.07s ===============================
+Fri May 14 11:06:42 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 7 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  bill_depth_mm  ...     sex    species
+0              39.1           18.7  ...    male     Adelie
+1              39.5           17.4  ...  female     Adelie
+2              40.3           18.0  ...  female     Adelie
+3               NaN            NaN  ...     NaN     Adelie
+4              36.7           19.3  ...  female     Adelie
+..              ...            ...  ...     ...        ...
+339            55.8           19.8  ...    male  Chinstrap
+340            43.5           18.1  ...  female  Chinstrap
+341            49.6           18.2  ...    male  Chinstrap
+342            50.8           19.0  ...    male  Chinstrap
+343            50.2           18.7  ...  female  Chinstrap
+
+[344 rows x 6 columns]
+PASSED
+tests/test_data_splitting.py::test_data_splitting_train PASSED
+tests/test_data_splitting.py::test_data_splitting_valid PASSED
+tests/test_data_splitting.py::test_data_splitting_test PASSED
+tests/test_feature_engineering.py::test_drop_missing_data PASSED
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+PASSED
+
+============================== 7 passed in 1.05s ===============================
+Fri May 14 11:07:07 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 7 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  bill_depth_mm  ...     sex    species
+0              39.1           18.7  ...    male     Adelie
+1              39.5           17.4  ...  female     Adelie
+2              40.3           18.0  ...  female     Adelie
+3               NaN            NaN  ...     NaN     Adelie
+4              36.7           19.3  ...  female     Adelie
+..              ...            ...  ...     ...        ...
+339            55.8           19.8  ...    male  Chinstrap
+340            43.5           18.1  ...  female  Chinstrap
+341            49.6           18.2  ...    male  Chinstrap
+342            50.8           19.0  ...    male  Chinstrap
+343            50.2           18.7  ...  female  Chinstrap
+
+[344 rows x 6 columns]
+PASSED
+tests/test_data_splitting.py::test_data_splitting_train PASSED
+tests/test_data_splitting.py::test_data_splitting_valid PASSED
+tests/test_data_splitting.py::test_data_splitting_test PASSED
+tests/test_feature_engineering.py::test_drop_missing_data PASSED
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+PASSED
+
+============================== 7 passed in 1.08s ===============================
+Fri May 14 11:07:16 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 7 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  bill_depth_mm  ...     sex    species
+0              39.1           18.7  ...    male     Adelie
+1              39.5           17.4  ...  female     Adelie
+2              40.3           18.0  ...  female     Adelie
+3               NaN            NaN  ...     NaN     Adelie
+4              36.7           19.3  ...  female     Adelie
+..              ...            ...  ...     ...        ...
+339            55.8           19.8  ...    male  Chinstrap
+340            43.5           18.1  ...  female  Chinstrap
+341            49.6           18.2  ...    male  Chinstrap
+342            50.8           19.0  ...    male  Chinstrap
+343            50.2           18.7  ...  female  Chinstrap
+
+[344 rows x 6 columns]
+PASSED
+tests/test_data_splitting.py::test_data_splitting_train PASSED
+tests/test_data_splitting.py::test_data_splitting_valid PASSED
+tests/test_data_splitting.py::test_data_splitting_test PASSED
+tests/test_feature_engineering.py::test_drop_missing_data PASSED
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+PASSED
+
+============================== 7 passed in 1.04s ===============================
+Fri May 14 11:08:19 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 7 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  bill_depth_mm  ...     sex    species
+0              39.1           18.7  ...    male     Adelie
+1              39.5           17.4  ...  female     Adelie
+2              40.3           18.0  ...  female     Adelie
+3               NaN            NaN  ...     NaN     Adelie
+4              36.7           19.3  ...  female     Adelie
+..              ...            ...  ...     ...        ...
+339            55.8           19.8  ...    male  Chinstrap
+340            43.5           18.1  ...  female  Chinstrap
+341            49.6           18.2  ...    male  Chinstrap
+342            50.8           19.0  ...    male  Chinstrap
+343            50.2           18.7  ...  female  Chinstrap
+
+[344 rows x 6 columns]
+PASSED
+tests/test_data_splitting.py::test_data_splitting_train PASSED
+tests/test_data_splitting.py::test_data_splitting_valid PASSED
+tests/test_data_splitting.py::test_data_splitting_test PASSED
+tests/test_feature_engineering.py::test_drop_missing_data PASSED
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+PASSED
+
+============================== 7 passed in 1.13s ===============================
+Fri May 14 11:08:30 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 7 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  bill_depth_mm  ...     sex    species
+0              39.1           18.7  ...    male     Adelie
+1              39.5           17.4  ...  female     Adelie
+2              40.3           18.0  ...  female     Adelie
+3               NaN            NaN  ...     NaN     Adelie
+4              36.7           19.3  ...  female     Adelie
+..              ...            ...  ...     ...        ...
+339            55.8           19.8  ...    male  Chinstrap
+340            43.5           18.1  ...  female  Chinstrap
+341            49.6           18.2  ...    male  Chinstrap
+342            50.8           19.0  ...    male  Chinstrap
+343            50.2           18.7  ...  female  Chinstrap
+
+[344 rows x 6 columns]
+PASSED
+tests/test_data_splitting.py::test_data_splitting_train PASSED
+tests/test_data_splitting.py::test_data_splitting_valid PASSED
+tests/test_data_splitting.py::test_data_splitting_test PASSED
+tests/test_feature_engineering.py::test_drop_missing_data PASSED
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+PASSED
+
+============================== 7 passed in 1.05s ===============================
+Fri May 14 11:09:03 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 7 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test [32mPASSED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+[32m============================== [32m[1m7 passed[0m[32m in 1.08s[0m[32m ===============================[0m
+Fri May 14 11:09:15 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 7 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  bill_depth_mm  ...     sex    species
+0              39.1           18.7  ...    male     Adelie
+1              39.5           17.4  ...  female     Adelie
+2              40.3           18.0  ...  female     Adelie
+3               NaN            NaN  ...     NaN     Adelie
+4              36.7           19.3  ...  female     Adelie
+..              ...            ...  ...     ...        ...
+339            55.8           19.8  ...    male  Chinstrap
+340            43.5           18.1  ...  female  Chinstrap
+341            49.6           18.2  ...    male  Chinstrap
+342            50.8           19.0  ...    male  Chinstrap
+343            50.2           18.7  ...  female  Chinstrap
+
+[344 rows x 6 columns]
+PASSED
+tests/test_data_splitting.py::test_data_splitting_train PASSED
+tests/test_data_splitting.py::test_data_splitting_valid PASSED
+tests/test_data_splitting.py::test_data_splitting_test PASSED
+tests/test_feature_engineering.py::test_drop_missing_data PASSED
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+PASSED
+
+============================== 7 passed in 1.02s ===============================
+Fri May 14 11:09:42 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 7 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  bill_depth_mm  ...     sex    species
+0              39.1           18.7  ...    male     Adelie
+1              39.5           17.4  ...  female     Adelie
+2              40.3           18.0  ...  female     Adelie
+3               NaN            NaN  ...     NaN     Adelie
+4              36.7           19.3  ...  female     Adelie
+..              ...            ...  ...     ...        ...
+339            55.8           19.8  ...    male  Chinstrap
+340            43.5           18.1  ...  female  Chinstrap
+341            49.6           18.2  ...    male  Chinstrap
+342            50.8           19.0  ...    male  Chinstrap
+343            50.2           18.7  ...  female  Chinstrap
+
+[344 rows x 6 columns]
+PASSED
+tests/test_data_splitting.py::test_data_splitting_train PASSED
+tests/test_data_splitting.py::test_data_splitting_valid PASSED
+tests/test_data_splitting.py::test_data_splitting_test PASSED
+tests/test_feature_engineering.py::test_drop_missing_data PASSED
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+PASSED
+
+============================== 7 passed in 1.05s ===============================
+Fri May 14 11:09:57 PM -03 2021
+============================= test session starts ==============================
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.0.1
+collecting ... collected 7 items
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  bill_depth_mm  ...     sex    species
+0              39.1           18.7  ...    male     Adelie
+1              39.5           17.4  ...  female     Adelie
+2              40.3           18.0  ...  female     Adelie
+3               NaN            NaN  ...     NaN     Adelie
+4              36.7           19.3  ...  female     Adelie
+..              ...            ...  ...     ...        ...
+339            55.8           19.8  ...    male  Chinstrap
+340            43.5           18.1  ...  female  Chinstrap
+341            49.6           18.2  ...    male  Chinstrap
+342            50.8           19.0  ...    male  Chinstrap
+343            50.2           18.7  ...  female  Chinstrap
+
+[344 rows x 6 columns]
+PASSED
+tests/test_data_splitting.py::test_data_splitting_train PASSED
+tests/test_data_splitting.py::test_data_splitting_valid PASSED
+tests/test_data_splitting.py::test_data_splitting_test PASSED
+tests/test_feature_engineering.py::test_drop_missing_data PASSED
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures PASSED
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+PASSED
+
+============================== 7 passed in 1.05s ===============================
