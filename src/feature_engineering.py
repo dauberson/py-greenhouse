@@ -16,10 +16,14 @@ def drop_missing_data(train, valid, test, cols):
 
 def numerical_missing_imputation(train, valid, test, cols, imputation_method="median"):
 
-    fe = imputation.MeanMedianImputer(imputation_method=imputation_method)
+    fe = imputation.MeanMedianImputer(
+        imputation_method=imputation_method, variables=cols
+    )
 
+    # Fit over training set
     fe.fit(train[cols])
 
+    # Apply to train, valid, test
     return (
         fe.transform(train[cols]),
         fe.transform(valid[cols]),
@@ -37,8 +41,6 @@ def one_hot_encoding(train, valid, test, cols):
         train[col] = train[col].fillna("na")
         valid[col] = valid[col].fillna("na")
         test[col] = test[col].fillna("na")
-
-    print(train)
 
     fe.fit(train[cols])
 

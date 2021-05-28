@@ -139,3 +139,6 @@ cython_debug/
 
 # Local logs of the project
 logs/
+
+# Local monitor logs
+monitor/
