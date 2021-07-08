@@ -1,3 +1,4 @@
+fastapi==0.65.1
 feature-engine==1.0.2
 jupyterlab==3.0.9
 matplotlib==3.3.4
@@ -10,3 +11,4 @@ prefect[viz]==0.14.12
 pytest==6.2.3
 scikit-learn==0.24.1
 seaborn==0.11.1
+uvicorn==0.13.4

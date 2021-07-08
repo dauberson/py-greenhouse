@@ -97,3 +97,6 @@ pre-commit:
 
 run:
 	(date && $(RUN) run) 2>&1 | tee -ai logs/log_run.txt
+
+fastapi:
+	$(RUN) --service-ports fastapi
