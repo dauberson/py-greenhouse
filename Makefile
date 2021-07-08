@@ -60,16 +60,12 @@ install-requirements:
 
 build:
 	mkdir --parents logs
-	touch logs/log_run.txt
-	touch logs/log_commit.txt
-	touch logs/log_release.txt
+	mkdir --parents monitor
 	$(BUILD)
 
 build-no-cache:
 	mkdir --parents logs
-	touch logs/log_run.txt
-	touch logs/log_commit.txt
-	touch logs/log_release.txt
+	mkdir --parents monitor
 	$(BUILD) --no-cache
 
 bash:
@@ -101,3 +97,6 @@ pre-commit:
 
 run:
 	(date && $(RUN) run) 2>&1 | tee -ai logs/log_run.txt
+
+fastapi:
+	$(RUN) --service-ports fastapi

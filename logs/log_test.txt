@@ -1534,3 +1534,691 @@ tests/test_feature_engineering.py::test_one_hot_encoding   class
 PASSED
 
 ============================== 7 passed in 1.01s ===============================
+Sat May 22 11:25:36 PM -03 2021
+Creating network "py-greenhouse_default" with the default driver
+Pulling test (base_image:)...
+pull access denied for base_image, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+Sat May 22 11:28:16 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.1.0
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 8 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid [31mFAILED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+=================================== FAILURES ===================================
+[31m[1m___________________ test_data_splitting_test_train_vs_valid ____________________[0m
+
+df_10_rows =    a  b
+0  0  a
+1  1  b
+2  2  c
+3  3  d
+4  4  e
+5  5  f
+6  6  g
+7  7  h
+8  8  i
+9  9  j
+
+    [94mdef[39;49;00m [92mtest_data_splitting_test_train_vs_valid[39;49;00m(df_10_rows):
+    
+>       [94massert[39;49;00m ~train.equals(valid)
+[1m[31mE       NameError: name 'train' is not defined[0m
+
+[1m[31mtests/test_data_splitting.py[0m:45: NameError
+=========================== short test summary info ============================
+FAILED tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid
+[31m========================= [31m[1m1 failed[0m, [32m7 passed[0m[31m in 1.24s[0m[31m ==========================[0m
+Sat May 22 11:28:40 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.1.0
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 8 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid [32mPASSED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+[32m============================== [32m[1m8 passed[0m[32m in 1.37s[0m[32m ===============================[0m
+Mon May 24 11:06:32 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.1.0
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 8 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid [32mPASSED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+[32m============================== [32m[1m8 passed[0m[32m in 1.86s[0m[32m ===============================[0m
+Mon May 24 11:07:47 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.1.0
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 8 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid [32mPASSED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+[32m============================== [32m[1m8 passed[0m[32m in 1.37s[0m[32m ===============================[0m
+Mon May 24 11:08:00 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.1.0
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 8 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid [32mPASSED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+[32m============================== [32m[1m8 passed[0m[32m in 1.34s[0m[32m ===============================[0m
+Mon May 24 11:08:11 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.1.0
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 8 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid [31mFAILED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+=================================== FAILURES ===================================
+[31m[1m___________________ test_data_splitting_test_train_vs_valid ____________________[0m
+
+df_10_rows =    col_1 col_2
+0      0     a
+1      1     b
+2      2     c
+3      3     d
+4      4     e
+5      5     f
+6      6     g
+7      7     h
+8      8     i
+9      9     j
+
+    [94mdef[39;49;00m [92mtest_data_splitting_test_train_vs_valid[39;49;00m(df_10_rows):
+    
+        train, valid, test = data_splitting.split(
+            df_10_rows, train_ratio=[94m0.1[39;49;00m, valid_ratio=[94m0.5[39;49;00m, test_ratio=[94m0.4[39;49;00m, seed=[94m0[39;49;00m
+        )
+    
+>       check = train.merge(
+            valid,
+            how=[33m"[39;49;00m[33minner[39;49;00m[33m"[39;49;00m,
+            rigth_on=[[33m"[39;49;00m[33mcol_1[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mcol_2[39;49;00m[33m"[39;49;00m],
+            sort=[94mFalse[39;49;00m
+        )
+[1m[31mE       TypeError: merge() got an unexpected keyword argument 'rigth_on'[0m
+
+[1m[31mtests/test_data_splitting.py[0m:49: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid
+[31m========================= [31m[1m1 failed[0m, [32m7 passed[0m[31m in 1.72s[0m[31m ==========================[0m
+Mon May 24 11:08:28 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.1.0
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 8 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid [31mFAILED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+=================================== FAILURES ===================================
+[31m[1m___________________ test_data_splitting_test_train_vs_valid ____________________[0m
+
+df_10_rows =    col_1 col_2
+0      0     a
+1      1     b
+2      2     c
+3      3     d
+4      4     e
+5      5     f
+6      6     g
+7      7     h
+8      8     i
+9      9     j
+
+    [94mdef[39;49;00m [92mtest_data_splitting_test_train_vs_valid[39;49;00m(df_10_rows):
+    
+        train, valid, test = data_splitting.split(
+            df_10_rows, train_ratio=[94m0.1[39;49;00m, valid_ratio=[94m0.5[39;49;00m, test_ratio=[94m0.4[39;49;00m, seed=[94m0[39;49;00m
+        )
+    
+>       check = train.merge(
+            valid,
+            how=[33m"[39;49;00m[33minner[39;49;00m[33m"[39;49;00m,
+            rigth_on=[[33m"[39;49;00m[33mcol_1[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mcol_2[39;49;00m[33m"[39;49;00m],
+            left_on=[[33m"[39;49;00m[33mcol_1[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mcol_2[39;49;00m[33m"[39;49;00m],
+            sort=[94mFalse[39;49;00m
+        )
+[1m[31mE       TypeError: merge() got an unexpected keyword argument 'rigth_on'[0m
+
+[1m[31mtests/test_data_splitting.py[0m:49: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid
+[31m========================= [31m[1m1 failed[0m, [32m7 passed[0m[31m in 1.47s[0m[31m ==========================[0m
+Mon May 24 11:08:41 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.1.0
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 8 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid [31mFAILED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+=================================== FAILURES ===================================
+[31m[1m___________________ test_data_splitting_test_train_vs_valid ____________________[0m
+
+df_10_rows =    col_1 col_2
+0      0     a
+1      1     b
+2      2     c
+3      3     d
+4      4     e
+5      5     f
+6      6     g
+7      7     h
+8      8     i
+9      9     j
+
+    [94mdef[39;49;00m [92mtest_data_splitting_test_train_vs_valid[39;49;00m(df_10_rows):
+    
+        train, valid, test = data_splitting.split(
+            df_10_rows, train_ratio=[94m0.1[39;49;00m, valid_ratio=[94m0.5[39;49;00m, test_ratio=[94m0.4[39;49;00m, seed=[94m0[39;49;00m
+        )
+    
+>       check = train.merge(
+            valid,
+            how=[33m"[39;49;00m[33minner[39;49;00m[33m"[39;49;00m,
+            rigth_on=[[33m"[39;49;00m[33mcol_1[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mcol_2[39;49;00m[33m"[39;49;00m],
+            left_on=[[33m"[39;49;00m[33mcol_1[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mcol_2[39;49;00m[33m"[39;49;00m],
+            sort=[94mFalse[39;49;00m
+        )
+[1m[31mE       TypeError: merge() got an unexpected keyword argument 'rigth_on'[0m
+
+[1m[31mtests/test_data_splitting.py[0m:49: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid
+[31m========================= [31m[1m1 failed[0m, [32m7 passed[0m[31m in 1.34s[0m[31m ==========================[0m
+Mon May 24 11:16:56 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.1.0
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 8 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid [31mFAILED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+=================================== FAILURES ===================================
+[31m[1m___________________ test_data_splitting_test_train_vs_valid ____________________[0m
+
+df_10_rows =    col_1 col_2
+0      0     a
+1      1     b
+2      2     c
+3      3     d
+4      4     e
+5      5     f
+6      6     g
+7      7     h
+8      8     i
+9      9     j
+
+    [94mdef[39;49;00m [92mtest_data_splitting_test_train_vs_valid[39;49;00m(df_10_rows):
+    
+        train, valid, test = data_splitting.split(
+            df_10_rows, train_ratio=[94m0.1[39;49;00m, valid_ratio=[94m0.5[39;49;00m, test_ratio=[94m0.4[39;49;00m, seed=[94m0[39;49;00m
+        )
+    
+>       df_check = train.merge(
+            valid,
+            how=[33m"[39;49;00m[33minner[39;49;00m[33m"[39;49;00m,
+            rigth_on=[[33m"[39;49;00m[33mcol_1[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mcol_2[39;49;00m[33m"[39;49;00m],
+            left_on=[[33m"[39;49;00m[33mcol_1[39;49;00m[33m"[39;49;00m, [33m"[39;49;00m[33mcol_2[39;49;00m[33m"[39;49;00m],
+            sort=[94mFalse[39;49;00m
+        )
+[1m[31mE       TypeError: merge() got an unexpected keyword argument 'rigth_on'[0m
+
+[1m[31mtests/test_data_splitting.py[0m:49: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid
+[31m========================= [31m[1m1 failed[0m, [32m7 passed[0m[31m in 1.93s[0m[31m ==========================[0m
+Mon May 24 11:17:12 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.1.0
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 8 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid [32mPASSED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+[32m============================== [32m[1m8 passed[0m[32m in 1.65s[0m[32m ===============================[0m
+Mon May 24 11:17:35 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.1.0
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 9 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_test [32mPASSED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+[32m============================== [32m[1m9 passed[0m[32m in 1.35s[0m[32m ===============================[0m
+Wed May 26 11:55:47 PM -03 2021
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.1.0
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 9 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_test [32mPASSED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+  class
+0     a
+1     b
+2     c
+3     a
+4    na
+[32mPASSED[0m
+
+[32m============================== [32m[1m9 passed[0m[32m in 1.76s[0m[32m ===============================[0m
