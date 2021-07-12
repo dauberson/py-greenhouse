@@ -1,3 +1,4 @@
+from os import name
 import data_sourcing
 import data_splitting
 import data_preprocessing
@@ -19,13 +20,38 @@ start_time = time.strftime("%Y%m%d%H%M%S")
 @task
 def sourcing():
 
-    return data_sourcing.get()
+    use_sourcing_example = True 
+    path = "/usr/app/examples/df_example.csv" #path where is the data if you don't use the example change it.
+    sep = ";" #whitch separate your columns, to defaut is comma(,)
+    header = 0 #index of dataset header if it doesn't exists use 0
+    names = ["colum_name_a", "colum_name_b"] #columns names it will override the headers existing or not
+
+    if use_sourcing_example == True:
+        return data_sourcing.get_example()
+
+    return data_sourcing.get(path = path, sep = sep, header = header, names = names)
+
+@task
+def tokenizing(df, text_col, toke_type):
+
+    df["tokens"] = data_preprocessing.tokenizing(df, text_col, toke_type)
+
+    return df
 
 
 @task
-def cleansing(df):
+def stop_words(df, token_col):
+    
+    df["tokens_wosw"] = data_preprocessing.stop_words(df, token_col)
 
-    return data_preprocessing.clean(df)
+    return df
+
+@task
+def cleansing(df, text_col):
+
+    df["clean_text"] = data_preprocessing.clean(df, text_col)
+
+    return df
 
 
 @task
@@ -35,9 +61,16 @@ def normalizing(df):
 
 
 @task(nout=3)
-def splitting(df):
+def splitting(df, train_ratio=0.8, valid_ratio=0.1, test_ratio=0.1):
 
-    return data_splitting.split(df)
+    return data_splitting.split(df, train_ratio, valid_ratio, test_ratio)
+
+@task
+def label(df, y_col):
+
+    df["num_cat"] = data_preprocessing.label_encoding(df, y_col)
+
+    return df
 
 
 @task(nout=3)
@@ -98,16 +131,18 @@ def monitor(df, path):
     pass
 
 
-@task(nout=5)
-def model(train, valid, test, obs, y_col, x_col):
+@task(nout=4)
+def model(df, train, valid, test, y_col, x_col, vec_type):
 
-    mo = modeling.model()
+    model = modeling.model()
 
-    mo.fit(train=train, y_col=y_col, x_col=x_col)
+    model.vectorizing(df, train, valid, test, x_col, vec_type)
 
-    lst = list(mo.transform_sets(train=train, valid=valid, test=test))
+    model.fit(train, y_col)
 
-    lst.append(mo.transform_new(obs=obs))
+    lst = model.transform_sets(train=train, valid=valid, test=test)
+
+    # lst.append(mo.transform_new(obs=obs))
 
     return lst
 
@@ -119,14 +154,13 @@ def threshold(y_true, y_score):
 
 
 @task
-def performance(y_true, y_score, best_hyperparams, path, opt_thr, suffix):
+def performance(y_true, y_pred, best_hyperparams, path, suffix):
 
     return performance_monitoring.report_performance(
         y_true=y_true,
-        y_score=y_score,
+        y_pred=y_pred,
         best_hyperparams=best_hyperparams,
         path=path,
-        opt_thr=opt_thr,
         suffix=suffix,
     )
 
@@ -152,101 +186,63 @@ def df_to_csv(df, filename):
 
     pass
 
+@task
+def predict(instance):
+
+    return modeling.transform_new(instance)
+
 
 with Flow("greenhouse") as flow:
 
     df = sourcing()
-    df = cleansing(df)
-    df = normalizing(df)
-    train, valid, test = splitting(df)
+    df = cleansing(df, text_col = "text")
+    df = tokenizing(df, text_col = "clean_text", toke_type = "multi_word")
+    df = stop_words(df, token_col = "tokens")
+    df = label(df, y_col = "cats")
 
-    # monitor(train, "monitor/monitor_before_feat_eng.html")
+    train, valid, test = splitting(df, train_ratio=0.8, valid_ratio=0.1, test_ratio=0.1)
 
-    categorical_cols = [
-        "sex",
-    ]
+    monitor(train, "monitor/monitor.html")
 
-    train, valid, test = one_hot(
-        train=train, valid=valid, test=test, cols=categorical_cols
-    )
-
-    numerical_cols = [
-        "bill_length_mm",
-        "bill_depth_mm",
-        "flipper_length_mm",
-        "body_mass_g",
-    ]
-
-    train, valid, test = imputation(
+    train, valid, test, best_hyperparams = model(
+        df = df,
         train=train,
         valid=valid,
         test=test,
-        cols=numerical_cols,
-        imputation_method="median",
-    )
-
-    # monitor(train, "monitor/monitor_afeterfeat_eng.html")
-
-    y_col = ["species"]
-
-    x_col = [
-        "sex_male",
-        "sex_female",
-        "sex_na",
-        "bill_length_mm_imputed",
-        "bill_depth_mm_imputed",
-        "flipper_length_mm_imputed",
-        "body_mass_g_imputed",
-    ]
-
-    train, valid, test, best_hyperparams, new = model(
-        train=train,
-        valid=valid,
-        test=test,
-        obs=test,
-        y_col=y_col,
-        x_col=x_col,
+        y_col="num_cat",
+        x_col="tokens_wosw",
+        vec_type="count"
     )
 
     path = "data/"
     filename = path + "{}_predict_new.csv".format(start_time)
 
-    df_to_csv(df=new, filename=filename)
-
-    opt_thr = threshold(y_true=train["actual"], y_score=train["prob_0"])
-
-    binary_map = {
-        0: 1,
-        1: 0,
-        2: 0,
-    }
+    df_to_csv(df=test, filename=filename)
 
     performance(
-        y_true=binarize(binary_map=binary_map, series=train["actual"]),
-        y_score=train["prob_0"],
+        y_true=train["actual"],
+        y_pred=train["pred"],
         best_hyperparams=best_hyperparams,
         path="monitor/",
-        opt_thr=opt_thr,
         suffix="train",
     )
 
     performance(
-        y_true=binarize(binary_map=binary_map, series=test["actual"]),
-        y_score=test["prob_0"],
+        y_true=test["actual"],
+        y_pred=test["pred"],
         best_hyperparams=best_hyperparams,
         path="monitor/",
-        opt_thr=opt_thr,
         suffix="test",
     )
 
     performance(
-        y_true=binarize(binary_map=binary_map, series=valid["actual"]),
-        y_score=valid["prob_0"],
+        y_true=valid["actual"],
+        y_pred=valid["pred"],
         best_hyperparams=best_hyperparams,
         path="monitor/",
-        opt_thr=opt_thr,
         suffix="valid",
     )
+
 
 if __name__ == "__main__":
 

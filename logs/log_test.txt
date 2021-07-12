@@ -2222,3 +2222,83 @@ tests/test_feature_engineering.py::test_one_hot_encoding   class
 [32mPASSED[0m
 
 [32m============================== [32m[1m9 passed[0m[32m in 1.76s[0m[32m ===============================[0m
+Thu Jul  8 02:30:21 PM -03 2021
+Creating py-greenhouse_test_run ... 
+Creating py-greenhouse_test_run ... done
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.2.1
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 9 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get      bill_length_mm  ...    species
+0              39.1  ...     Adelie
+1              39.5  ...     Adelie
+2              40.3  ...     Adelie
+3               NaN  ...     Adelie
+4              36.7  ...     Adelie
+..              ...  ...        ...
+339            55.8  ...  Chinstrap
+340            43.5  ...  Chinstrap
+341            49.6  ...  Chinstrap
+342            50.8  ...  Chinstrap
+343            50.2  ...  Chinstrap
+
+[344 rows x 6 columns]
+[32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_test [32mPASSED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+[32mPASSED[0m
+
+[32m============================== [32m[1m9 passed[0m[32m in 1.00s[0m[32m ===============================[0m
+Fri Jul  9 08:55:30 PM -03 2021
+Creating py-greenhouse_test_run ... 
+Creating py-greenhouse_test_run ... done
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.9.2, pytest-6.2.3, py-1.10.0, pluggy-0.13.1 -- /usr/local/bin/python
+cachedir: .pytest_cache
+rootdir: /usr/app
+plugins: anyio-3.2.1
+[1mcollecting ... [0m[1mcollecting 1 item                                                              [0m[1mcollected 9 items                                                              [0m
+
+tests/test_data_sourcing.py::test_data_sourcing_get [31mFAILED[0m
+tests/test_data_splitting.py::test_data_splitting_train_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_valid_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_ratio [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_valid [32mPASSED[0m
+tests/test_data_splitting.py::test_data_splitting_test_train_vs_test [32mPASSED[0m
+tests/test_feature_engineering.py::test_drop_missing_data [32mPASSED[0m
+tests/test_feature_engineering.py::test_numerical_missing_imputation_twofeatures [32mPASSED[0m
+tests/test_feature_engineering.py::test_one_hot_encoding   class
+0     a
+1     b
+2     c
+3     a
+4   NaN
+[32mPASSED[0m
+
+=================================== FAILURES ===================================
+[31m[1m____________________________ test_data_sourcing_get ____________________________[0m
+
+    [94mdef[39;49;00m [92mtest_data_sourcing_get[39;49;00m():
+    
+>       df = data_sourcing.get()
+[1m[31mE       TypeError: get() missing 4 required positional arguments: 'path', 'sep', 'header', and 'names'[0m
+
+[1m[31mtests/test_data_sourcing.py[0m:7: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_data_sourcing.py::test_data_sourcing_get - TypeError: get()...
+[31m========================= [31m[1m1 failed[0m, [32m8 passed[0m[31m in 1.13s[0m[31m ==========================[0m
+1

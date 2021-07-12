@@ -142,3 +142,9 @@ logs/
 
 # Local monitor logs
 monitor/
+
+#Local models
+models/
+
+#Local metrics
+data/

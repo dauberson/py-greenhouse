@@ -1,21 +1,14 @@
-import palmerpenguins
+from os import name
+import pandas as pd
 
+def get(path, sep, header, names):
 
-def get():
-    """
-    This template function uses the Palmer Peguins dataset as a place holder.
-    Replace it by your own code to import your project's data.
-    """
+    df = pd.read_csv(filepath_or_buffer = path, sep = sep, header = header, names = names)
 
-    df = palmerpenguins.load_penguins()
+    return df
 
-    cols = [
-        "bill_length_mm",
-        "bill_depth_mm",
-        "flipper_length_mm",
-        "body_mass_g",
-        "sex",
-        "species",
-    ]
+def get_example():
 
-    return df[cols]
+    df = pd.read_csv("/usr/app/examples/data_example.csv", sep=";", header=1, names=["text","cats"])
+
+    return df.sample(50, random_state=1)
