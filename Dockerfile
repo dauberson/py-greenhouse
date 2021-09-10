@@ -17,3 +17,5 @@ COPY requirements.txt ${APP_DIR}
 
 RUN pip install --upgrade pip \
     && pip3 install --no-cache-dir -r requirements.txt
+
+RUN python3 -m spacy download pt_core_news_sm

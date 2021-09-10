@@ -1,3 +1,4 @@
+from os import name
 import data_sourcing
 import data_splitting
 import data_preprocessing
@@ -5,6 +6,7 @@ import feature_engineering
 import monitoring
 import modeling
 import performance_monitoring
+import feature_extraction
 from prefect import Flow, task, context
 import pandas as pd
 import time
@@ -13,19 +15,50 @@ pd.set_option("display.max_rows", 100)
 pd.set_option("display.max_columns", None)
 pd.set_option("display.width", None)
 
-start_time = time.strftime("%Y%m%d%H%M%S")
+# model_id = time.strftime("%Y%m%d%H%M%S")
+model_id = "123"
 
 
 @task
 def sourcing():
 
-    return data_sourcing.get()
+    use_sourcing_example = False
+    path = "/usr/app/examples/data_example.csv"  # path where is the data if you don't use the example change it.
+    sep = ";"  # whitch separate your columns, to defaut is comma(,)
+    header = 0  # index of dataset header if it doesn't exists use 0
+    names = [
+        "text",
+        "cats",
+    ]  # columns names will override the headers existing or not
+
+    if use_sourcing_example:
+        return data_sourcing.get_example()
+
+    return data_sourcing.get(path=path, sep=sep, header=header, names=names)
 
 
 @task
-def cleansing(df):
+def tokenizing(tokenizer_type, text_col, df):
 
-    return data_preprocessing.clean(df)
+    df["tokens"] = df[text_col].apply(feature_extraction.tokenizer(tokenizer_type))
+
+    return df
+
+
+@task
+def stop_words(df, token_col):
+
+    df["tokens_wosw"] = data_preprocessing.stop_words(df, token_col)
+
+    return df
+
+
+@task
+def cleansing(df, text_col):
+
+    df["clean_text"] = data_preprocessing.clean(df, text_col)
+
+    return df
 
 
 @task
@@ -35,9 +68,17 @@ def normalizing(df):
 
 
 @task(nout=3)
-def splitting(df):
+def splitting(df, train_ratio=0.8, valid_ratio=0.1, test_ratio=0.1):
 
-    return data_splitting.split(df)
+    return data_splitting.split(df, train_ratio, valid_ratio, test_ratio)
+
+
+@task
+def label(df, y_col):
+
+    df["num_cat"] = data_preprocessing.label_encoding(df, y_col)
+
+    return df
 
 
 @task(nout=3)
@@ -98,16 +139,20 @@ def monitor(df, path):
     pass
 
 
-@task(nout=5)
-def model(train, valid, test, obs, y_col, x_col):
+@task(nout=4)
+def model(
+    df, train, valid, test, y_col, x_col, vectorizer_type, tokenizer_type, model_id
+):
 
-    mo = modeling.model()
+    model = modeling.model(model_id=model_id)
 
-    mo.fit(train=train, y_col=y_col, x_col=x_col)
+    model.vectorizing(vectorizer_type, tokenizer_type)
 
-    lst = list(mo.transform_sets(train=train, valid=valid, test=test))
+    model.fit(train, y_col, x_col)
 
-    lst.append(mo.transform_new(obs=obs))
+    lst = model.metrics(train=train, valid=valid, test=test)
+
+    # lst.append(mo.transform_new(obs=obs))
 
     return lst
 
@@ -119,22 +164,16 @@ def threshold(y_true, y_score):
 
 
 @task
-def performance(y_true, y_score, best_hyperparams, path, opt_thr, suffix):
+def performance(y_true, y_pred, best_hyperparams, path, suffix, model_id):
 
     return performance_monitoring.report_performance(
         y_true=y_true,
-        y_score=y_score,
+        y_pred=y_pred,
         best_hyperparams=best_hyperparams,
         path=path,
-        opt_thr=opt_thr,
         suffix=suffix,
+        model_id=model_id,
     )
-
-
-@task
-def binarize(binary_map, series):
-
-    return series.map(binary_map)
 
 
 @task(log_stdout=True)
@@ -146,107 +185,78 @@ def task_print(x):
 
 
 @task
-def df_to_csv(df, filename):
+def df_to_csv(df, path, suffix):
+
+    filename = "{0}/{1}_metadata_{2}.csv".format(path, model_id, suffix)
 
     df.to_csv(filename)
 
     pass
 
 
+@task
+def predict(instance):
+
+    return modeling.transform_new(instance)
+
+
 with Flow("greenhouse") as flow:
 
     df = sourcing()
-    df = cleansing(df)
-    df = normalizing(df)
-    train, valid, test = splitting(df)
+    df = cleansing(df, text_col="text")
+    # df = tokenizing(tokenizer_type="split", text_col="clean_text", df=df)
+    df = stop_words(df, token_col="tokens")
+    # df = label(df, y_col="cats")
 
-    # monitor(train, "monitor/monitor_before_feat_eng.html")
+    task_print(df)
 
-    categorical_cols = [
-        "sex",
-    ]
+    train, valid, test = splitting(df, train_ratio=0.8, valid_ratio=0.1, test_ratio=0.1)
 
-    train, valid, test = one_hot(
-        train=train, valid=valid, test=test, cols=categorical_cols
-    )
+    # monitor(train, "monitor/monitor.html")
 
-    numerical_cols = [
-        "bill_length_mm",
-        "bill_depth_mm",
-        "flipper_length_mm",
-        "body_mass_g",
-    ]
-
-    train, valid, test = imputation(
+    train, valid, test, best_hyperparams = model(
+        df=df,
         train=train,
         valid=valid,
         test=test,
-        cols=numerical_cols,
-        imputation_method="median",
+        y_col="cats",
+        x_col="clean_text",
+        vectorizer_type="count",
+        tokenizer_type="split",
+        model_id=model_id,
     )
 
-    # monitor(train, "monitor/monitor_afeterfeat_eng.html")
-
-    y_col = ["species"]
-
-    x_col = [
-        "sex_male",
-        "sex_female",
-        "sex_na",
-        "bill_length_mm_imputed",
-        "bill_depth_mm_imputed",
-        "flipper_length_mm_imputed",
-        "body_mass_g_imputed",
-    ]
-
-    train, valid, test, best_hyperparams, new = model(
-        train=train,
-        valid=valid,
-        test=test,
-        obs=test,
-        y_col=y_col,
-        x_col=x_col,
-    )
-
-    path = "data/"
-    filename = path + "{}_predict_new.csv".format(start_time)
-
-    df_to_csv(df=new, filename=filename)
-
-    opt_thr = threshold(y_true=train["actual"], y_score=train["prob_0"])
-
-    binary_map = {
-        0: 1,
-        1: 0,
-        2: 0,
-    }
+    df_to_csv(df=train, path="data/", suffix="train")
+    df_to_csv(df=test, path="data/", suffix="test")
+    df_to_csv(df=valid, path="data/", suffix="valid")
 
     performance(
-        y_true=binarize(binary_map=binary_map, series=train["actual"]),
-        y_score=train["prob_0"],
+        y_true=train["actual"],
+        y_pred=train["pred"],
         best_hyperparams=best_hyperparams,
         path="monitor/",
-        opt_thr=opt_thr,
         suffix="train",
+        model_id=model_id,
     )
 
     performance(
-        y_true=binarize(binary_map=binary_map, series=test["actual"]),
-        y_score=test["prob_0"],
+        y_true=test["actual"],
+        y_pred=test["pred"],
         best_hyperparams=best_hyperparams,
         path="monitor/",
-        opt_thr=opt_thr,
         suffix="test",
+        model_id=model_id,
     )
 
     performance(
-        y_true=binarize(binary_map=binary_map, series=valid["actual"]),
-        y_score=valid["prob_0"],
+        y_true=valid["actual"],
+        y_pred=valid["pred"],
         best_hyperparams=best_hyperparams,
         path="monitor/",
-        opt_thr=opt_thr,
         suffix="valid",
+        model_id=model_id,
     )
+
 
 if __name__ == "__main__":
 
