@@ -61,11 +61,13 @@ install-requirements:
 build:
 	mkdir --parents logs
 	mkdir --parents monitor
+	mkdir --parents data
 	$(BUILD)
 
 build-no-cache:
 	mkdir --parents logs
 	mkdir --parents monitor
+	mkdir --parents data
 	$(BUILD) --no-cache
 
 bash:
@@ -100,3 +102,8 @@ run:
 
 fastapi:
 	$(RUN) --service-ports fastapi
+
+clean:
+	sudo rm -r monitor
+	sudo rm -r data 
+	sudo rm -r logs 

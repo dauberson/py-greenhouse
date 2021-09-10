@@ -6,11 +6,11 @@ import json
 
 meta = {}
 
-meta["timestr"] = time.strftime("%Y%m%d%H%M%S")
 
-def report_performance(
-    y_true, y_pred, best_hyperparams, path, opt_thr=0.5, suffix="_"
-):
+def report_performance(model_id, y_true, y_pred, best_hyperparams, path, suffix="_"):
+
+    for key, value in best_hyperparams.items():
+        best_hyperparams[key] = str(value)
 
     meta["optimal_hyperparams"] = best_hyperparams
 
@@ -18,7 +18,7 @@ def report_performance(
         y_true=y_true, y_pred=y_pred, output_dict=True
     )
 
-    filename = "{0}/{1}_metadata_{2}.json".format(path, meta["timestr"], suffix)
+    filename = "{0}/{1}_metadata_{2}.json".format(path, model_id, suffix)
 
     # Export to JSON
     with open(filename, "w") as fp:

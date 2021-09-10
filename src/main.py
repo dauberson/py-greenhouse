@@ -6,6 +6,7 @@ import feature_engineering
 import monitoring
 import modeling
 import performance_monitoring
+import feature_extraction
 from prefect import Flow, task, context
 import pandas as pd
 import time
@@ -14,37 +15,43 @@ pd.set_option("display.max_rows", 100)
 pd.set_option("display.max_columns", None)
 pd.set_option("display.width", None)
 
-start_time = time.strftime("%Y%m%d%H%M%S")
+# model_id = time.strftime("%Y%m%d%H%M%S")
+model_id = "123"
 
 
 @task
 def sourcing():
 
-    use_sourcing_example = True 
-    path = "/usr/app/examples/df_example.csv" #path where is the data if you don't use the example change it.
-    sep = ";" #whitch separate your columns, to defaut is comma(,)
-    header = 0 #index of dataset header if it doesn't exists use 0
-    names = ["colum_name_a", "colum_name_b"] #columns names it will override the headers existing or not
+    use_sourcing_example = False
+    path = "/usr/app/examples/data_example.csv"  # path where is the data if you don't use the example change it.
+    sep = ";"  # whitch separate your columns, to defaut is comma(,)
+    header = 0  # index of dataset header if it doesn't exists use 0
+    names = [
+        "text",
+        "cats",
+    ]  # columns names will override the headers existing or not
 
-    if use_sourcing_example == True:
+    if use_sourcing_example:
         return data_sourcing.get_example()
 
-    return data_sourcing.get(path = path, sep = sep, header = header, names = names)
+    return data_sourcing.get(path=path, sep=sep, header=header, names=names)
+
 
 @task
-def tokenizing(df, text_col, toke_type):
+def tokenizing(tokenizer_type, text_col, df):
 
-    df["tokens"] = data_preprocessing.tokenizing(df, text_col, toke_type)
+    df["tokens"] = df[text_col].apply(feature_extraction.tokenizer(tokenizer_type))
 
     return df
 
 
 @task
 def stop_words(df, token_col):
-    
+
     df["tokens_wosw"] = data_preprocessing.stop_words(df, token_col)
 
     return df
+
 
 @task
 def cleansing(df, text_col):
@@ -64,6 +71,7 @@ def normalizing(df):
 def splitting(df, train_ratio=0.8, valid_ratio=0.1, test_ratio=0.1):
 
     return data_splitting.split(df, train_ratio, valid_ratio, test_ratio)
+
 
 @task
 def label(df, y_col):
@@ -132,15 +140,17 @@ def monitor(df, path):
 
 
 @task(nout=4)
-def model(df, train, valid, test, y_col, x_col, vec_type):
+def model(
+    df, train, valid, test, y_col, x_col, vectorizer_type, tokenizer_type, model_id
+):
 
-    model = modeling.model()
+    model = modeling.model(model_id=model_id)
 
-    model.vectorizing(df, train, valid, test, x_col, vec_type)
+    model.vectorizing(vectorizer_type, tokenizer_type)
 
-    model.fit(train, y_col)
+    model.fit(train, y_col, x_col)
 
-    lst = model.transform_sets(train=train, valid=valid, test=test)
+    lst = model.metrics(train=train, valid=valid, test=test)
 
     # lst.append(mo.transform_new(obs=obs))
 
@@ -154,7 +164,7 @@ def threshold(y_true, y_score):
 
 
 @task
-def performance(y_true, y_pred, best_hyperparams, path, suffix):
+def performance(y_true, y_pred, best_hyperparams, path, suffix, model_id):
 
     return performance_monitoring.report_performance(
         y_true=y_true,
@@ -162,13 +172,8 @@ def performance(y_true, y_pred, best_hyperparams, path, suffix):
         best_hyperparams=best_hyperparams,
         path=path,
         suffix=suffix,
+        model_id=model_id,
     )
-
-
-@task
-def binarize(binary_map, series):
-
-    return series.map(binary_map)
 
 
 @task(log_stdout=True)
@@ -180,11 +185,14 @@ def task_print(x):
 
 
 @task
-def df_to_csv(df, filename):
+def df_to_csv(df, path, suffix):
+
+    filename = "{0}/{1}_metadata_{2}.csv".format(path, model_id, suffix)
 
     df.to_csv(filename)
 
     pass
+
 
 @task
 def predict(instance):
@@ -195,29 +203,32 @@ def predict(instance):
 with Flow("greenhouse") as flow:
 
     df = sourcing()
-    df = cleansing(df, text_col = "text")
-    df = tokenizing(df, text_col = "clean_text", toke_type = "multi_word")
-    df = stop_words(df, token_col = "tokens")
-    df = label(df, y_col = "cats")
+    df = cleansing(df, text_col="text")
+    # df = tokenizing(tokenizer_type="split", text_col="clean_text", df=df)
+    df = stop_words(df, token_col="tokens")
+    # df = label(df, y_col="cats")
+
+    task_print(df)
 
     train, valid, test = splitting(df, train_ratio=0.8, valid_ratio=0.1, test_ratio=0.1)
 
-    monitor(train, "monitor/monitor.html")
+    # monitor(train, "monitor/monitor.html")
 
     train, valid, test, best_hyperparams = model(
-        df = df,
+        df=df,
         train=train,
         valid=valid,
         test=test,
-        y_col="num_cat",
-        x_col="tokens_wosw",
-        vec_type="count"
+        y_col="cats",
+        x_col="clean_text",
+        vectorizer_type="count",
+        tokenizer_type="split",
+        model_id=model_id,
     )
 
-    path = "data/"
-    filename = path + "{}_predict_new.csv".format(start_time)
-
-    df_to_csv(df=test, filename=filename)
+    df_to_csv(df=train, path="data/", suffix="train")
+    df_to_csv(df=test, path="data/", suffix="test")
+    df_to_csv(df=valid, path="data/", suffix="valid")
 
     performance(
         y_true=train["actual"],
@@ -225,6 +236,7 @@ with Flow("greenhouse") as flow:
         best_hyperparams=best_hyperparams,
         path="monitor/",
         suffix="train",
+        model_id=model_id,
     )
 
     performance(
@@ -233,6 +245,7 @@ with Flow("greenhouse") as flow:
         best_hyperparams=best_hyperparams,
         path="monitor/",
         suffix="test",
+        model_id=model_id,
     )
 
     performance(
@@ -241,6 +254,7 @@ with Flow("greenhouse") as flow:
         best_hyperparams=best_hyperparams,
         path="monitor/",
         suffix="valid",
+        model_id=model_id,
     )
 
 
